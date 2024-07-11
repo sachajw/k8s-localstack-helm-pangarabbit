@@ -16,6 +16,10 @@ image:
   tag: "latest"
   pullPolicy: IfNotPresent
 
+extraEnvVars:
+  - name: LOCALSTACK_AUTH_TOKEN
+    value: "${LOCALSTACK_AUTH_TOKEN}"
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
