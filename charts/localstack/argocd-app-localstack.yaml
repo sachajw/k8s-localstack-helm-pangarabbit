@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: localstack
+  namespace: localstack
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: pangarabbit
+  source:
+    repoURL: "https://github.com/localstack/helm-charts"
+    targetRevision: 0.6.15
+    chart: localstack
+    helm:
+      valueFiles:
+        - values-dev.yaml
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: localstack
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
