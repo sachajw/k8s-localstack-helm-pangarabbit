@@ -141,9 +141,9 @@ ingress:
   annotations: {}
   ## @param ingress.ingressClassName Set the name of the class to use
   ##
-  ingressClassName: ""
+  ingressClassName: "traefik"
   hosts:
-    - host: chart-example.local
+    - host: localstack.panagarabbit.com #chart-example.local
       paths:
         - path: /
           pathType: ImplementationSpecific
